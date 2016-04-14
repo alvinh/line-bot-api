@@ -1,6 +1,9 @@
 # share-line-bot-api
 
-### setup let's encrypt & install nginx @ centos
+### environment
+  - OS: CentOS 7
+
+### setup let's encrypt & install nginx
 ```sh
 yum -y install git bc
 git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
@@ -20,7 +23,7 @@ echo "30 2 * * 1 /opt/letsencrypt/letsencrypt-auto renew >> /var/log/le-renew.lo
 echo "30 2 * * 1 /usr/bin/systemctl reload nginx" | tee -a /var/spool/cron/root
 ```
 
-### install node.js & npm @centos
+### install node.js & npm
 ```sh
 curl https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
 source ~/.bashrc
