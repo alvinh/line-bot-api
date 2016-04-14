@@ -16,10 +16,8 @@ vi /etc/nginx/conf.d/ssl.conf
 vi /etc/nginx/default.d/ssl-redirect.conf
 systemctl reload nginx
 systemctl enable nginx
-crontab -e 
-# add below two lines
-# 30 2 * * 1 /opt/letsencrypt/letsencrypt-auto renew >> /var/log/le-renew.log
-# 30 2 * * 1 /usr/bin/systemctl reload nginx
+echo "30 2 * * 1 /opt/letsencrypt/letsencrypt-auto renew >> /var/log/le-renew.log" | tee -a /var/spool/cron/root
+echo "30 2 * * 1 /usr/bin/systemctl reload nginx" | tee -a /var/spool/cron/root
 ```
 
 ### install node.js & npm @centos
