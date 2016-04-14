@@ -26,4 +26,6 @@ curl https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
 source ~/.bashrc
 nvm install 5.0
 nvm use 5.0
+# install forever to manage node process
+npm install forever -g
 ```
