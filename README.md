@@ -29,3 +29,25 @@ nvm use 5.0
 # install forever to manage node process
 npm install forever -g
 ```
+
+### configuring nginx and ssl with node.js 
+```sh
+vi /etc/nginx/conf.d/ssl.conf
+# modify location / {} block to below
+location / {
+         # THESE ARE IMPORTANT
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        # This is what tells Connect that your session can be considered secure,
+        # even though the protocol node.js sees is only HTTP:
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-NginX-Proxy true;
+        proxy_read_timeout 5m;
+        proxy_connect_timeout 5m;
+        proxy_pass http://localhost:81;
+        proxy_redirect off;
+}
+# reload nginx
+nginx -s reload
+```
