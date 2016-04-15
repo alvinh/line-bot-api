@@ -2,6 +2,8 @@
 
 ### environment
   - OS: CentOS 7
+  - Frontend Sever: Nginx
+  - Backend Server: Node.js
 
 ### setup let's encrypt & install nginx
 ```sh
