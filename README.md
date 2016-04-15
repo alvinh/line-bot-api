@@ -1,4 +1,4 @@
-# share-line-bot-api
+# line-bot-api
 
 ### environment
   - OS: CentOS 7
