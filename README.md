@@ -65,15 +65,15 @@ yum -y install mongodb-org mongodb-org-server
 systemctl start mongod
 # security configuratino and create new database
 mongo
-> use admin
-> db.addUser("admin","1qazse4R")
-> exit
+#> use admin
+#> db.addUser("admin","1qazse4R")
+#> exit
 vi /etc/mongod.conf # add auth=true to enable access control
 service mongod restart
 mongo
-> use admin
-> db.auth("admin","1qazse4R")
-> use revervation
-> db.addUser("reservation","1qazse4R")
-> exit
+#> use admin
+#> db.auth("admin","1qazse4R")
+#> use revervation
+#> db.addUser("reservation","1qazse4R")
+#> exit
 ```
