@@ -68,7 +68,7 @@ mongo
 #> use admin
 #> db.addUser("admin","1qazse4R")
 #> exit
-vi /etc/mongod.conf # add auth=true to enable access control
+sed -i 's/#auth=true/auth=true/g' /etc/mongod.conf # add auth=true to enable access control
 service mongod restart
 mongo
 #> use admin
