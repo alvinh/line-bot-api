@@ -59,7 +59,21 @@ nginx -s reload
 
 ### install mongodb
 ```sh
+# install mongodb
 echo $'[mongodb]\nname=MongoDB Respository\nbaseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/\ngpgcheck=0\nenabled=1' > /etc/yum.repos.d/mongodb.repo
 yum -y install mongodb-org mongodb-org-server
 systemctl start mongod
+# security configuratino and create new database
+mongo
+> use admin
+> db.addUser("admin","1qazse4R")
+> exit
+vi /etc/mongod.conf # add auth=true to enable access control
+service mongod restart
+mongo
+> use admin
+> db.auth("admin","1qazse4R")
+> use revervation
+> db.addUser("reservation","1qazse4R")
+> exit
 ```
