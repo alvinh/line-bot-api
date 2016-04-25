@@ -56,3 +56,10 @@ location / {
 # reload nginx
 nginx -s reload
 ```
+
+### install mongodb
+```sh
+echo $'[mongodb]\nname=MongoDB Respository\nbaseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/\ngpgcheck=0\nenabled=1' > /etc/yum.repos.d/mongodb.repo
+yum -y install mongodb-org mongodb-org-server
+systemctl start mongod
+```
